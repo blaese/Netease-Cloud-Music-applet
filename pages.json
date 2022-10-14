@@ -1,0 +1,66 @@
+{
+  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/index/index"
+    },
+    {
+      "path": "pages/recommendSong/recommendSong",
+      "style": {
+        "navigationBarTitleText": "每日推荐",
+        "navigationBarBackgroundColor": "#91CDF6"
+      }
+    },
+    {
+      "path": "pages/songDetail/songDetail"
+    },
+    {
+      "path": "pages/video/video"
+    },
+    {
+      "path": "pages/personal/personal"
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录中心"
+      }
+    },
+    {
+      "path": "pages/search/search",
+      "style": {
+        "navigationBarTitleText": "发现音乐"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#d43c33",
+    "backgroundColor": "#fff",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "static/images/tabs/tab-home.png",
+        "selectedIconPath": "static/images/tabs/tab-home-current.png"
+      },
+      {
+        "pagePath": "pages/video/video",
+        "text": "视频",
+        "iconPath": "static/images/tabs/select.png",
+        "selectedIconPath": "static/images/tabs/selected.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "static/images/tabs/tab-my.png",
+        "selectedIconPath": "static/images/tabs/tab-my-current.png"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "网易云音乐",
+    "navigationBarBackgroundColor": "#c20c0c"
+  },
+  "uniIdRouter": {}
+  
+}
