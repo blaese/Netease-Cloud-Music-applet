@@ -150,9 +150,6 @@
           this.$bus.$off('musicId')
         })
         this.$bus.$emit('switchSong', type)
-      },
-      sliderChange(event){
-        console.log(event.detail.value)
       }
     }
   }

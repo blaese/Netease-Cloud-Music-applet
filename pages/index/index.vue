@@ -92,7 +92,7 @@
       })
       this.recommendList = recommendListData.result
       
-      // idx的取值范围是0-20，需要的是0-4，需要发送5次请求
+      // id的取值范围是0-20，需要的是0-4，需要发送5次请求
       let topList = await this.$request({
         url:'/toplist'
       })
@@ -229,7 +229,7 @@
             height: 100rpx;
             line-height: 100rpx;
             font-size: 28rpx;
-            min-width: 400rpx;
+            max-width: 400rpx;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;

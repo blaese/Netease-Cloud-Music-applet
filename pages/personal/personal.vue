@@ -121,7 +121,7 @@
       },
       toLogin() {
         uni.navigateTo({
-          url: '/pages/login/login'
+          url:'/pages/login/login'
         })
       },
       async getUserPlayList(uid) {
@@ -132,7 +132,7 @@
             type: 0
           }
         })
-        this.recentPlayList = result.allData.splice(0, 10)
+        this.recentPlayList = result.allData.slice(0,10)
       }
     }
   }

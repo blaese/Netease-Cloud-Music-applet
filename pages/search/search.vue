@@ -5,7 +5,7 @@
       <view class="search-input">
         <text class="search-icon iconfont icon-search"></text>
         <input type="text" :placeholder="placeholderContent" placeholder-class="placeholder" @input="handleInput" :value="keywords" />
-        <text class="clear iconfont icon-delete2" @click="clearKeywords"></text>
+        <text class="clear iconfont icon-delete2" @click="clearKeywords" v-show="keywords"></text>
       </view>
       <text class="cancel">取消</text>
     </view>

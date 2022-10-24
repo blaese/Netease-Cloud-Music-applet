@@ -115,7 +115,7 @@
   height: 100rpx;
   line-height: 100rpx;
   font-size: 28rpx;
-  min-width: 400rpx;
+  max-width: 400rpx;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

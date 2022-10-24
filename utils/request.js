@@ -6,14 +6,15 @@ export const request = (options) => {
       url: BASE_URL + options.url,
       method: options.method || 'GET',
       data: options.data || {},
-      header:{
-        cookie:uni.getStorageSync('cookies') ? uni.getStorageSync('cookies').find(item => item.indexOf('MUSIC_U') !== -1) : ''
+      header: {
+        cookie: uni.getStorageSync('cookies') ? uni.getStorageSync('cookies').find(item => item.indexOf(
+          'MUSIC_U') !== -1) : ''
       },
       success: (res) => {
-        if(res.cookies.length){
+        if (res.cookies.length) {
           uni.setStorage({
-            key:'cookies',
-            data:res.cookies
+            key: 'cookies',
+            data: res.cookies
           })
         }
         resolve(res.data)

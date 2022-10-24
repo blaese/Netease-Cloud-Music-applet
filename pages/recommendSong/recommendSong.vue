@@ -36,7 +36,7 @@
         day:'',
         month:'',
         recommendList:[],
-        index:0, // 点击音乐的索引数
+        index:0, // 被点击音乐的索引数
       }
     },
     onLoad() {
@@ -80,7 +80,7 @@
         let result = await this.$request({
           url:'/recommend/songs'
         })
-        this.recommendList = result.data['dailySongs']
+        this.recommendList = result.data.dailySongs
       },
       toSongDetail(id,index){
         this.index = index

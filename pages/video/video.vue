@@ -17,10 +17,10 @@
     <!-- 视频区域 -->
     <scroll-view class="video-scroll" scroll-y refresher-enabled @refresherrefresh="handleRefresher"
       :refresher-triggered="isTriggered" @scrolltolower="handleToLower">
-      <view class="video-item" v-for="(item,index) in videoList" :key="index" @play="handlePlay(item.data.vid)">
-        <video :src="item.data.videoUrl" class="video" v-if="videoId == item.data.vid" :poster="item.data.title"
-          autoplay="true" objectFit="cover" @timeupdate="handleTimeUpdate($event,item.data.vid)" :id="item.data.vid"
-          :initial-time="initialTime" @ended="handleEnded(item.data.vid)"></video>
+      <view class="video-item" v-for="(item,index) in videoList" :key="index">
+        <video :src="item.data.videoUrl" class="video" v-if="videoId == item.data.vid" :poster="item.data.coverUrl"
+          autoplay="true" objectFit="cover"  @play="handlePlay(item.data.vid)" @timeupdate="handleTimeUpdate($event,item.data.vid)" :id="item.data.vid"
+           @ended="handleEnded(item.data.vid)"></video>
         <!-- 性能优化：使用封面图片代替video -->
         <image :src="item.data.coverUrl" class="video" v-else @click="handlePlay(item.data.vid)"></image>
 
@@ -56,8 +56,7 @@
         navId: '', // 当前导航id
         videoList: [],
         videoId: '', // 当前视频id
-        videoPlayTime: [], // 记录所有video的播放时长，数组内为包含time和tid属性的对象
-        initialTime: 0, // 初始播放时间
+        videoPlayTime: [], // 记录所有video的播放时长，数组内为包含time和vid属性的对象
         isTriggered: false, // 记录下拉刷新是否被触发
         offset:0, // 记录分页
       }
@@ -143,9 +142,7 @@
         this.videoContext = uni.createVideoContext(this.videoId)
         let videoItem = this.videoPlayTime.find(item => item.vid === vid)
         if (videoItem) {
-          // 使用动态属性initial-time来控制播放初始时间
-          this.initialTime = videoItem.currentTime
-          // this.videoContext.seek(videoItem.currentTime)
+          this.videoContext.seek(videoItem.currentTime)
         }
         this.videoContext.play()
       },
@@ -164,7 +161,7 @@
         } = this
         let videoItem = videoPlayTime.find(item => item.vid === videoTimeObj.vid)
         if (videoItem) {
-          videoItem.currentTime = videoTimeObj.currentTime
+          videoItem.currentTime = videoTimeObj.currentTime  
         } else {
           videoPlayTime.push(videoTimeObj)
         }
